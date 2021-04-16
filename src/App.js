@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.css';
+import FuncComp from './components/FuncComp';
+import ClassComp from './components/ClassComp';
 
 function App() {
   return (
     <div className="App">
-      
+      Hello Woirld
+      <FuncComp />
+      <ClassComp />
     </div>
   );
 }
