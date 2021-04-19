@@ -67,6 +67,9 @@ class ClassComp extends React.Component {
   //   console.log('%cclass => componentWillUpdate',classStyle)
 
   // }
+
+  // 커밋 수정됨
+
   render() {
     console.log('%cclass => render',classStyle);
     return (
