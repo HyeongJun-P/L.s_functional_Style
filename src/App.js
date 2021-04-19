@@ -54,19 +54,19 @@ class ClassComp extends React.Component {
     number: this.props.initNumber,
     date: (new Date().toString())
   };
-  componentWillMount() {
-    console.log('%cclass => componentWill<ount', classStyle)
-  }
-  componentDidMount() {
-    console.log('%cclass => componentDidMount',classStyle)
-  }
-  shouldComponentUpdate() {
-    console.log('%cclass => shouldComponentUpdate',classStyle)
-  }
-  componentWillUpdate() {
-    console.log('%cclass => componentWillUpdate',classStyle)
+  // componentWillMount() {
+  //   console.log('%cclass => componentWill<ount', classStyle)
+  // }
+  // componentDidMount() {
+  //   console.log('%cclass => componentDidMount',classStyle)
+  // }
+  // shouldComponentUpdate() {
+  //   console.log('%cclass => shouldComponentUpdate',classStyle)
+  // }
+  // componentWillUpdate() {
+  //   console.log('%cclass => componentWillUpdate',classStyle)
 
-  }
+  // }
   render() {
     console.log('%cclass => render',classStyle);
     return (
