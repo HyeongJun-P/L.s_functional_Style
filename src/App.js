@@ -31,10 +31,13 @@ function FuncComp(props) {
   const [date, setDate] = useState((new Date().toString()))
 
   // side effect
-  useEffect(function() {
+  useEffect(() => {
     console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)    
     document.title = number + ' : ' + date;
-  });
+    return function cleanup() {
+      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)
+    }
+  }); 
 
   console.log('%cfunc => render ' + (++funcId), funcStyle)
 
