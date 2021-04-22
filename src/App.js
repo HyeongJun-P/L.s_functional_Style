@@ -13,17 +13,23 @@ function App() {
   );
 }
 
+let funcStyle = 'color:blue';
+let funcId = 0;
+
 function FuncComp(props) {
-  const numberState = useState(props.initNumber);
-  const number = numberState[0];
-  const setNumber = numberState[1];
+
+  // const numberState = useState(props.initNumber);
+  // const number = numberState[0];
+  // const setNumber = numberState[1];
+
+  const [number, setNumber] = useState(props.initNumber);
 
   // const dateState = useState((new Date().toString()));
   // const date = dateState[0];
   // const setDate = dateState[1];
 
   const [date, setDate] = useState((new Date().toString()))
-
+  console.log('%cfunc => render' + (++funcId, funcStyle);
   return (
     <div className="container">
       <h2> function style component</h2>
