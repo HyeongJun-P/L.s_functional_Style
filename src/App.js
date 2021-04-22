@@ -13,8 +13,8 @@ function App() {
   );
 }
 
-let funcStyle = 'color:blue';
-let funcId = 0;
+var funcStyle = 'color:blue';
+var funcId = 0;
 
 function FuncComp(props) {
 
@@ -32,7 +32,7 @@ function FuncComp(props) {
 
   // side effect
   useEffect(function() {
-    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate' + (++funcId, funcStyle))    
+    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)    
     document.title = number + ' : ' + date;
   });
 
