@@ -4,11 +4,26 @@ import "./App.css";
 // import ClassComp from './components/ClassComp';
 
 function App() {
+  const [funcShow, setFuncShow] = useState(true);
+  const [classShow, setClassShow] = useState(true);
+
   return (
     <div className="container">
-      Hello Woirld
-      <FuncComp initNumber={2} />
-      <ClassComp initNumber={2} />
+      <h1>Hello Woirld</h1>
+      <input type="button" value="onmove func" onClick= {() => {
+        setFuncShow(true);
+      }}></input>
+      <input type="button" value="remove func" onClick= {() => {
+        setFuncShow(false);
+      }}></input><br></br>
+      <input type="button" value="onmove class" onClick= {() => {
+        setClassShow(true);
+      }}></input>
+      <input type="button" value="remove class" onClick= {() => {
+        setClassShow(false);
+      }}></input>
+      { funcShow ? <FuncComp initNumber={2}/> : null}
+      { classShow ? <ClassComp initNumber={2} /> : null}
     </div>
   );
 }
@@ -31,13 +46,29 @@ function FuncComp(props) {
   const [date, setDate] = useState((new Date().toString()))
 
   // side effect
+
   useEffect(() => {
-    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)    
-    document.title = number + ' : ' + date;
+    console.log('%cfunc => useEffect (componentDidMount) ' + (++funcId), funcStyle)
     return function cleanup() {
-      console.log('%cfunc => useEffect return (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)
+      console.log('%cfunc => useEffect return  (componentWillUnMount) ' + (++funcId), funcStyle)
     }
-  }); 
+  },[]);
+
+  useEffect(() => {
+    console.log('%cfunc => useEffect number (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)    
+    document.title = number;
+    return function cleanup() {
+      console.log('%cfunc => useEffect return number (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)
+    }
+  }, [number]);
+
+  useEffect(() => {
+    console.log('%cfunc => useEffect date (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)    
+    document.title = date;
+    return function cleanup() {
+      console.log('%cfunc => useEffect return date (componentDidMount & componentDidUpdate) ' + (++funcId), funcStyle)
+    }
+  }, [date]); 
 
   console.log('%cfunc => render ' + (++funcId), funcStyle)
 
@@ -86,6 +117,9 @@ class ClassComp extends React.Component {
   }
   componentDidUpdate(nextProps, nextState) {
     console.log("%cclass => componentDidUpdate",classStyle);
+  }
+  componentWillUnmount() {
+    console.log("%cclass => componentWillUnMount",classStyle);      
   }
 
   // 커밋 수정됨
