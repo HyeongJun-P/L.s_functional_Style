@@ -13,8 +13,8 @@ function App() {
   );
 }
 
-var funcStyle = 'color:blue';
-var funcId = 0;
+const funcStyle = 'color:blue';
+const funcId = 0;
 
 function FuncComp(props) {
 
