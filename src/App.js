@@ -29,7 +29,7 @@ function FuncComp(props) {
   // const setDate = dateState[1];
 
   const [date, setDate] = useState((new Date().toString()))
-  console.log('%cfunc => render' + (++funcId, funcStyle);
+  console.log('%cfunc => render' + (++funcId, funcStyle))
   return (
     <div className="container">
       <h2> function style component</h2>
