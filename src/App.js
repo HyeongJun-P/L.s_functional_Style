@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 // import FuncComp from './components/FuncComp';
 // import ClassComp from './components/ClassComp';
@@ -29,7 +29,15 @@ function FuncComp(props) {
   // const setDate = dateState[1];
 
   const [date, setDate] = useState((new Date().toString()))
+
+  // side effect
+  useEffect(function() {
+    console.log('%cfunc => useEffect (componentDidMount & componentDidUpdate' + (++funcId, funcStyle))    
+    document.title = number + ' : ' + date;
+  });
+
   console.log('%cfunc => render' + (++funcId, funcStyle))
+
   return (
     <div className="container">
       <h2> function style component</h2>
