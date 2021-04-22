@@ -14,7 +14,7 @@ function App() {
 }
 
 const funcStyle = 'color:blue';
-const funcId = 0;
+let funcId = 0;
 
 function FuncComp(props) {
 
@@ -36,7 +36,7 @@ function FuncComp(props) {
     document.title = number + ' : ' + date;
   });
 
-  console.log('%cfunc => render' + (++funcId, funcStyle))
+  console.log('%cfunc => render ' + (++funcId), funcStyle)
 
   return (
     <div className="container">
